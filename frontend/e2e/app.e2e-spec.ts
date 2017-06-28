@@ -1,14 +1,14 @@
-import { FrontendPage } from './app.po';
+import { WebTechFrontEndPage } from './app.po';
 
-describe('frontend App', () => {
-  let page: FrontendPage;
+describe('web-tech-front-end App', function() {
+  let page: WebTechFrontEndPage;
 
   beforeEach(() => {
-    page = new FrontendPage();
+    page = new WebTechFrontEndPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display message saying app works', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!!');
+    expect(page.getParagraphText()).toEqual('app works!');
   });
 });

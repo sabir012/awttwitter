@@ -1,0 +1,33 @@
+<div class="well sidebar-nav" data-spy="affix">
+  <div ng-controller="testCtrl">
+    <div class ="row">
+      <div style="display: block" class="col-md-6">
+        <h4 style="text-align: center">Sentinent</h4>
+        <canvas baseChart
+                [data]="doughnutChartData"
+                [labels]="doughnutChartLabels"
+                [chartType]="doughnutChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+      </div>
+      <div class="col-md-6">
+                <h4 style="text-align: center">Type</h4>
+                <img class="img-responsive" [src]="fullpathtype">
+                <h5 style="text-align: center">{{texttype[0]}}</h5>
+      </div>
+    </div>
+    <div class ="row">
+      <div class="col-md-6">
+        <h4 style="text-align: center">Spam</h4>
+        <img class="img-responsive" [src]="fullpathspam">
+        <h5 style="text-align: center">{{spam_text}}</h5>
+      </div>
+      <div class="col-md-6">
+        <h4 style="text-align: center">Gender</h4>
+        <img class="img-responsive" [src]="fullpathgender">
+        <h5 style="text-align: center">{{gender_text}}</h5>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -8,13 +8,15 @@ import { MenuComponent } from './menu/menu.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SocialpostsComponent } from './socialposts/socialposts.component';
 import { ChartsModule } from 'ng2-charts';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     NavbarComponent,
-    SocialpostsComponent
+    SocialpostsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

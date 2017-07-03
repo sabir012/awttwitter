@@ -7,6 +7,7 @@ import javax.persistence.Id;
 /**
  * Created by sabiralizada on 7/3/17.
  */
+@SuppressWarnings("ALL")
 @Entity
 public class Topic {
     private Long id;

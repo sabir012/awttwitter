@@ -7,6 +7,7 @@ import javax.persistence.Id;
 /**
  * Created by sabiralizada on 7/3/17.
  */
+@SuppressWarnings("ALL")
 @Entity
 public class Category {
     private Long id;
@@ -14,7 +15,7 @@ public class Category {
 
     @Id
     @GeneratedValue
-    public Long getId() {
+    public Long getID() {
         return id;
     }
     public void setId(){

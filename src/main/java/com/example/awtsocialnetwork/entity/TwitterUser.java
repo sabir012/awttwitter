@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+@SuppressWarnings("ALL")
 @Entity
 public class TwitterUser {
     private Long id;

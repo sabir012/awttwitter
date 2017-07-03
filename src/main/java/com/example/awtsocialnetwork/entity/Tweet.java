@@ -8,6 +8,7 @@ import java.util.Date;
 /**
  * Created by sabiralizada on 7/3/17.
  */
+@SuppressWarnings("ALL")
 @Entity
 public class Tweet {
     private Long id;

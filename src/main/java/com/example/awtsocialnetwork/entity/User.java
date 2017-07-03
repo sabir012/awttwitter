@@ -8,6 +8,7 @@ import javax.persistence.Id;
 /**
  * Created by sabiralizada on 7/2/17.
  */
+@SuppressWarnings("ALL")
 @Entity
 public class User {
     private Long id;

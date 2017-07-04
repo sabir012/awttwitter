@@ -11,6 +11,7 @@ import { ChartsModule } from 'ng2-charts';
 import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './register/register.component';
 
 const appRoutes: Routes = [
   {
@@ -20,6 +21,11 @@ const appRoutes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+
+  {
+    path: 'register',
+    component : RegisterComponent
   },
   {
     path: '',
@@ -36,7 +42,8 @@ const appRoutes: Routes = [
     NavbarComponent,
     SocialpostsComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

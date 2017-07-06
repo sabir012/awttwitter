@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
+import { FilterComponent } from './filter/filter.component';
 
 const appRoutes: Routes = [
   {
@@ -43,7 +44,8 @@ const appRoutes: Routes = [
     SocialpostsComponent,
     LoginComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,

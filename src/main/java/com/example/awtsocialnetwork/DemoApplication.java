@@ -1,6 +1,7 @@
 package com.example.awtsocialnetwork;
 
 import com.example.awtsocialnetwork.entity.TwitterUserEntity;
+import com.example.awtsocialnetwork.repository.FilterRepository;
 import com.example.awtsocialnetwork.repository.TwitterUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -29,13 +30,17 @@ public class DemoApplication implements CommandLineRunner {
 	@Autowired
 	private TwitterUserRepository repo;
 
+	@Autowired
+	private FilterRepository filterRepo;
+
+
 	@Override
 	public void run(String... args) {
-		repo.save(new TwitterUserEntity("Sabir Alizada","S.Alizada"));
-		repo.save(new TwitterUserEntity("Donald Trump","D.Trump"));
-		repo.save(new TwitterUserEntity("Robert Dony Jumior","R.D.Junior"));
+		// repo.save(new TwitterUserEntity("Sabir Alizada","S.Alizada"));
+		// repo.save(new TwitterUserEntity("Donald Trump","D.Trump"));
+		// repo.save(new TwitterUserEntity("Robert Dony Jumior","R.D.Junior"));
 
-		System.out.println("New users wwere saved...");
+		// System.out.println("New users wwere saved...");
 
 		for (TwitterUserEntity user: repo.findAll()) {
 			System.out.println(user.getFullName());

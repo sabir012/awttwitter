@@ -2,23 +2,32 @@ package com.example.awtsocialnetwork.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- * Created by sabiralizada on 7/3/17.
+ * Created by sabiralizada on 7/9/17.
  */
-@SuppressWarnings("ALL")
-@Entity
-public class Category {
+@Entity(name = "Subjectivity")
+public class SubjectivityEntity {
     private Long id;
     private String name;
 
+    public SubjectivityEntity() {
+        super();
+    }
+
+    public SubjectivityEntity(String name) {
+        this.name = name;
+    }
+
     @Id
-    @GeneratedValue
-    public Long getID() {
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Long getId() {
         return id;
     }
-    public void setId(){
+
+    public void setId(Long id) {
         this.id = id;
     }
 

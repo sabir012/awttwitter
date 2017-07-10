@@ -2,23 +2,31 @@ package com.example.awtsocialnetwork.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- * Created by sabiralizada on 7/3/17.
+ * Created by sabiralizada on 7/9/17.
  */
-@SuppressWarnings("ALL")
-@Entity
-public class FollowerType {
+@Entity(name = "Readability")
+public class ReadabilityEntity {
     private Long id;
     private String name;
 
+    public ReadabilityEntity(){super();}
+
+    public ReadabilityEntity(String name) {
+        this.name = name;
+    }
+
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
     }
-    public void setId(){
+
+    public void setId(Long id) {
         this.id = id;
     }
 

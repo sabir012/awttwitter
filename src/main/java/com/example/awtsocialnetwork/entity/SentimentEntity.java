@@ -2,25 +2,36 @@ package com.example.awtsocialnetwork.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- * Created by sabiralizada on 7/3/17.
+ * Created by sabiralizada on 7/9/17.
  */
-@SuppressWarnings("ALL")
-@Entity
-public class Sentiment{
+@Entity(name = "Sentiment")
+public class SentimentEntity {
     private int minValue;
     private int maxValue;
     private Long id;
     private String name;
 
+    public SentimentEntity() {
+        super();
+    }
+
+    public SentimentEntity(int minValue, int maxValue, String name) {
+        this.minValue = minValue;
+        this.maxValue = maxValue;
+        this.name = name;
+    }
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
     }
-    public void setId(){
+
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -45,3 +56,4 @@ public class Sentiment{
         this.maxValue = maxValue;
     }
 }
+

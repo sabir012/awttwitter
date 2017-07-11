@@ -1,8 +1,7 @@
 package com.example.awtsocialnetwork;
 
-import com.example.awtsocialnetwork.entity.TwitterUserEntity;
-import com.example.awtsocialnetwork.repository.FilterRepository;
-import com.example.awtsocialnetwork.repository.TwitterUserRepository;
+import com.example.awtsocialnetwork.entity.*;
+import com.example.awtsocialnetwork.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -19,7 +18,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableAutoConfiguration
-@ComponentScan(basePackages = "com.example.awtsocialnetwork.controller")
+@ComponentScan({"com.example.awtsocialnetwork.controller", "com.example.awtsocialnetwork.service"})
 @EnableTransactionManagement
 @EnableScheduling
 @EntityScan(basePackages = "com.example.awtsocialnetwork.entity")
@@ -29,7 +28,6 @@ public class DemoApplication implements CommandLineRunner {
 
 	@Autowired
 	private TwitterUserRepository repo;
-
 	@Autowired
 	private FilterRepository filterRepo;
 

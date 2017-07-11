@@ -1,9 +1,11 @@
 package com.example.awtsocialnetwork.controller;
 
+import com.example.awtsocialnetwork.Model.FilterModel;
 import com.example.awtsocialnetwork.entity.FilterEntity;
 import com.example.awtsocialnetwork.entity.TwitterUserEntity;
 import com.example.awtsocialnetwork.repository.FilterRepository;
 import com.example.awtsocialnetwork.repository.TwitterUserRepository;
+import com.example.awtsocialnetwork.service.FilterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,20 +17,14 @@ import org.springframework.web.bind.annotation.*;
 public class TimelineController {
 
     @Autowired
-    private FilterRepository filterRepository;
+    private FilterService filterService;
 
     @Autowired
     private TwitterUserRepository userRepository;
 
     @GetMapping(path="/")
-    public @ResponseBody Iterable<FilterEntity> getAllFilters() {
+    public @ResponseBody FilterModel getAllFilters() {
         // This returns a JSON or XML with the users
-        return filterRepository.findAll();
-    }
-
-    @GetMapping(path="/users")
-    public @ResponseBody Iterable<TwitterUserEntity> getAllUsers() {
-        // This returns a JSON or XML with the users
-        return userRepository.findAll();
+        return filterService.getAllFilter();
     }
 }

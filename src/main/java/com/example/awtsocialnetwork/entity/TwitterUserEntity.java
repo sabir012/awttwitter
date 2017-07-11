@@ -13,12 +13,14 @@ public class TwitterUserEntity {
     private Long id;
     private String fullName;
     private String screeName;
+    private Long twitterId;
 
     public TwitterUserEntity(){super();}
 
-    public TwitterUserEntity(String fullName, String screeName) {
+    public TwitterUserEntity(String fullName, String screeName, Long twitterId) {
         this.fullName = fullName;
         this.screeName = screeName;
+        this.twitterId = twitterId;
     }
 
     @Id
@@ -33,6 +35,14 @@ public class TwitterUserEntity {
 
     public String getFullName() {
         return fullName;
+    }
+
+    public Long getTwitterId() {
+        return twitterId;
+    }
+
+    public void setTwitterId(Long twitterId) {
+        this.twitterId = twitterId;
     }
 
     public void setFullName(String fullName) {

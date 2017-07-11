@@ -22,12 +22,13 @@ public class TweetEntity {
     private SubjectivityEntity subjectivity;
     private ReadabilityEntity readability;
     private Date date;
+    private Long twitterTweetId;
 
     public TweetEntity(){
         super();
     }
 
-    public TweetEntity(String content, TwitterUserEntity user, TopicEntity topic, SentimentEntity sentiment, Float sentimentValue, GenderEntity gender, LanguageEntity language, EducationalTypeEntity educationalType, CommercialTypeEntity commercialType, AdultContentTypeEntity contentType, SubjectivityEntity subjectivity, ReadabilityEntity readability, Date date) {
+    public TweetEntity(String content, TwitterUserEntity user, TopicEntity topic, SentimentEntity sentiment, Float sentimentValue, GenderEntity gender, LanguageEntity language, EducationalTypeEntity educationalType, CommercialTypeEntity commercialType, AdultContentTypeEntity contentType, SubjectivityEntity subjectivity, ReadabilityEntity readability, Date date, Long twitterTweetId) {
         this.content = content;
         this.user = user;
         this.topic = topic;
@@ -41,6 +42,15 @@ public class TweetEntity {
         this.subjectivity = subjectivity;
         this.readability = readability;
         this.date = date;
+        this.twitterTweetId = twitterTweetId;
+    }
+
+    public Long getTwitterTweetId() {
+        return twitterTweetId;
+    }
+
+    public void setTwitterTweetId(Long twitterTweetId) {
+        this.twitterTweetId = twitterTweetId;
     }
 
     @Id
@@ -53,7 +63,7 @@ public class TweetEntity {
         this.id = id;
     }
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "TwitterUserID")
     public TwitterUserEntity getUserEntity() {
         return user;
@@ -63,7 +73,7 @@ public class TweetEntity {
         this.user = userEntity;
     }
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "TopicID")
     public TopicEntity getTopic() {
         return topic;
@@ -73,7 +83,7 @@ public class TweetEntity {
         this.topic = topic;
     }
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "SentimentID")
     public SentimentEntity getSentiment() {
         return sentiment;
@@ -83,7 +93,7 @@ public class TweetEntity {
         this.sentiment = sentiment;
     }
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "GenderID")
     public GenderEntity getGender() {
         return gender;
@@ -93,19 +103,19 @@ public class TweetEntity {
         this.gender = gender;
     }
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "LanguageID")
     public LanguageEntity getLanguage() {
         return language;
     }
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "EducationalTypeID")
     public EducationalTypeEntity getEducationalType() {
         return educationalType;
     }
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "ContentTypeID")
     public AdultContentTypeEntity getContentType() {
         return contentType;
@@ -123,7 +133,7 @@ public class TweetEntity {
         this.language = language;
     }
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "SubjectivityID")
     public SubjectivityEntity getSubjectivity() {
         return subjectivity;
@@ -133,7 +143,7 @@ public class TweetEntity {
         this.subjectivity = subjectivity;
     }
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "ReadabilityID")
     public ReadabilityEntity getReadability() {
         return readability;
@@ -143,7 +153,7 @@ public class TweetEntity {
         this.readability = readability;
     }
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "CommercialTypeID")
     public CommercialTypeEntity getCommercialType() {
         return commercialType;

@@ -10,7 +10,7 @@ import java.util.Date;
 public class TweetEntity {
     private Long id;
     private String content;
-    private TwitterUserEntity user;
+    private TwitterUserEntity twitterUser;
     private TopicEntity topic;
     private SentimentEntity sentiment;
     private GenderEntity gender;
@@ -27,9 +27,9 @@ public class TweetEntity {
         super();
     }
 
-    public TweetEntity(String content, TwitterUserEntity user, TopicEntity topic, SentimentEntity sentiment, GenderEntity gender, LanguageEntity language, EducationalTypeEntity educationalType, CommercialTypeEntity commercialType, AdultContentTypeEntity contentType, SubjectivityEntity subjectivity, ReadabilityEntity readability, Date date, Long twitterTweetId) {
+    public TweetEntity(String content, TwitterUserEntity twitterUser, TopicEntity topic, SentimentEntity sentiment, GenderEntity gender, LanguageEntity language, EducationalTypeEntity educationalType, CommercialTypeEntity commercialType, AdultContentTypeEntity contentType, SubjectivityEntity subjectivity, ReadabilityEntity readability, Date date, Long twitterTweetId) {
         this.content = content;
-        this.user = user;
+        this.twitterUser = twitterUser;
         this.topic = topic;
         this.sentiment = sentiment;
         this.gender = gender;
@@ -63,12 +63,12 @@ public class TweetEntity {
 
     @ManyToOne
     @JoinColumn(name = "TwitterUserID")
-    public TwitterUserEntity getUserEntity() {
-        return user;
+    public TwitterUserEntity getTwitterUser() {
+        return twitterUser;
     }
 
-    public void setUserEntity(TwitterUserEntity userEntity) {
-        this.user = userEntity;
+    public void setTwitterUser(TwitterUserEntity twitterUser) {
+        this.twitterUser = twitterUser;
     }
 
     @ManyToOne

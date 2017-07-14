@@ -31,6 +31,11 @@ public class TimelineController {
         return filterService.getAllFilter();
     }
 
+    public @ResponseBody Iterable<TweetEntity> getAllTweets() {
+        // This returns a JSON or XML with the users
+        return tweetRepository.findAll();
+    }
+
     @GetMapping(path="/topic")
     public @ResponseBody Iterable<TweetEntity> getTopicFilter(@RequestParam("topicID") String id) {
         // This returns a JSON or XML with the users
@@ -55,9 +60,9 @@ public class TimelineController {
         return tweetRepository.findBySentimentId(Long.parseLong(id));
     }
 
-/*    @GetMapping(path="/filterUser")
+    @GetMapping(path="/filterUser")
     public @ResponseBody Iterable<TweetEntity> getUserFilter(@RequestParam("userID") String id) {
         // This returns a JSON or XML with the users
-        return tweetRepository.findByTwitterUserID(Long.parseLong(id));
-    } */
+        return tweetRepository.findByTwitterUserId(Long.parseLong(id));
+    }
 }

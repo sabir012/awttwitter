@@ -14,5 +14,5 @@ public interface TweetRepository extends CrudRepository<TweetEntity,Long> {
     Iterable<TweetEntity> findByLanguageId(Long id);
     Iterable<TweetEntity> findByGenderId(Long id);
     Iterable<TweetEntity> findBySentimentId(Long id);
-    // Iterable<TweetEntity> findByTwitterUserID(Long id);
+    Iterable<TweetEntity> findByTwitterUserId(Long id);
 }

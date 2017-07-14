@@ -31,7 +31,7 @@ public class FilterService {
         FilterModel filterModel = new FilterModel();
 
         for (FilterEntity filter:filterEntities) {
-            switch (filter.getTableName()){
+            switch (filter.getName()){
                 case "topic": filterModel.setTopics(topicRepository.findAll()); break;
                 case "language": filterModel.setLanguages(languageRepository.findAll()); break;
                 case "gender": filterModel.setGenders(genderRepository.findAll()); break;

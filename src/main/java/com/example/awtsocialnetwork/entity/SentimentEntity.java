@@ -10,8 +10,6 @@ import javax.persistence.Id;
  */
 @Entity(name = "Sentiment")
 public class SentimentEntity {
-    private int minValue;
-    private int maxValue;
     private Long id;
     private String name;
 
@@ -19,9 +17,7 @@ public class SentimentEntity {
         super();
     }
 
-    public SentimentEntity(int minValue, int maxValue, String name) {
-        this.minValue = minValue;
-        this.maxValue = maxValue;
+    public SentimentEntity(String name) {
         this.name = name;
     }
 
@@ -40,20 +36,6 @@ public class SentimentEntity {
     }
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getMinValue() {
-        return minValue;
-    }
-    public void setMinValue(int minValue) {
-        this.minValue = minValue;
-    }
-
-    public int getMaxValue() {
-        return maxValue;
-    }
-    public void setMaxValue(int maxValue) {
-        this.maxValue = maxValue;
     }
 }
 

@@ -11,14 +11,14 @@ import javax.persistence.Id;
 @Entity(name = "Filter")
 public class FilterEntity {
     private Long id;
-    private String tableName;
+    private String name;
 
     public FilterEntity() {
         super();
     }
 
-    public FilterEntity(String tableName) {
-        this.tableName = tableName;
+    public FilterEntity(String name) {
+        this.name = name;
     }
 
     @Id
@@ -31,10 +31,10 @@ public class FilterEntity {
         this.id = id;
     }
 
-    public String getTableName() {
-        return tableName;
+    public String getName() {
+        return name;
     }
-    public void setTableName(String tableName) {
-        this.tableName = tableName;
+    public void setName(String name) {
+        this.name = name;
     }
 }

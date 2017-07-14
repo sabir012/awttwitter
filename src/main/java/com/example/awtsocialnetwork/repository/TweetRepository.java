@@ -9,5 +9,10 @@ import java.util.List;
  * Created by sabiralizada on 7/9/17.
  */
 public interface TweetRepository extends CrudRepository<TweetEntity,Long> {
-    List<TweetEntity> findById(Long id);
+    Iterable<TweetEntity> findById(Long id);
+    Iterable<TweetEntity> findByTopicId(Long id);
+    Iterable<TweetEntity> findByLanguageId(Long id);
+    Iterable<TweetEntity> findByGenderId(Long id);
+    Iterable<TweetEntity> findBySentimentId(Long id);
+    // Iterable<TweetEntity> findByTwitterUserID(Long id);
 }

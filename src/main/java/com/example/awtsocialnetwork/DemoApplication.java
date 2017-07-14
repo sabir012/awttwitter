@@ -29,11 +29,12 @@ public class DemoApplication implements CommandLineRunner {
 	@Autowired
 	private TwitterUserRepository repo;
 	@Autowired
-	private FilterRepository filterRepo;
+	private SentimentRepository sentimentRepository;
 
 
 	@Override
 	public void run(String... args) {
+
 		// repo.save(new TwitterUserEntity("Sabir Alizada","S.Alizada"));
 		// repo.save(new TwitterUserEntity("Donald Trump","D.Trump"));
 		// repo.save(new TwitterUserEntity("Robert Dony Jumior","R.D.Junior"));

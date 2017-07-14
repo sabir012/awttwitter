@@ -14,13 +14,15 @@ public class TwitterUserEntity {
     private String fullName;
     private String screeName;
     private Long twitterId;
+    private String profileBackgroundImageUrl;
 
     public TwitterUserEntity(){super();}
 
-    public TwitterUserEntity(String fullName, String screeName, Long twitterId) {
+    public TwitterUserEntity(String fullName, String screeName, Long twitterId, String profileBackgroundImageUrl) {
         this.fullName = fullName;
         this.screeName = screeName;
         this.twitterId = twitterId;
+        this.profileBackgroundImageUrl=profileBackgroundImageUrl;
     }
 
     @Id
@@ -39,6 +41,14 @@ public class TwitterUserEntity {
 
     public Long getTwitterId() {
         return twitterId;
+    }
+
+    public String getProfileBackgroundImageUrl() {
+        return profileBackgroundImageUrl;
+    }
+
+    public void setProfileBackgroundImageUrl(String profileBackgroundImageUrl) {
+        this.profileBackgroundImageUrl = profileBackgroundImageUrl;
     }
 
     public void setTwitterId(Long twitterId) {

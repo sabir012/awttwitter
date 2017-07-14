@@ -13,7 +13,6 @@ public class TweetEntity {
     private TwitterUserEntity user;
     private TopicEntity topic;
     private SentimentEntity sentiment;
-    private Float sentimentValue;
     private GenderEntity gender;
     private LanguageEntity language;
     private EducationalTypeEntity educationalType;
@@ -28,12 +27,11 @@ public class TweetEntity {
         super();
     }
 
-    public TweetEntity(String content, TwitterUserEntity user, TopicEntity topic, SentimentEntity sentiment, Float sentimentValue, GenderEntity gender, LanguageEntity language, EducationalTypeEntity educationalType, CommercialTypeEntity commercialType, AdultContentTypeEntity contentType, SubjectivityEntity subjectivity, ReadabilityEntity readability, Date date, Long twitterTweetId) {
+    public TweetEntity(String content, TwitterUserEntity user, TopicEntity topic, SentimentEntity sentiment, GenderEntity gender, LanguageEntity language, EducationalTypeEntity educationalType, CommercialTypeEntity commercialType, AdultContentTypeEntity contentType, SubjectivityEntity subjectivity, ReadabilityEntity readability, Date date, Long twitterTweetId) {
         this.content = content;
         this.user = user;
         this.topic = topic;
         this.sentiment = sentiment;
-        this.sentimentValue = sentimentValue;
         this.gender = gender;
         this.language = language;
         this.educationalType = educationalType;
@@ -168,13 +166,6 @@ public class TweetEntity {
     }
     public void setContent(String content) {
         this.content = content;
-    }
-
-    public Float getSentimentValue() {
-        return sentimentValue;
-    }
-    public void setSentimentValue(Float sentimentValue) {
-        this.sentimentValue = sentimentValue;
     }
 
     public Date getDate() {

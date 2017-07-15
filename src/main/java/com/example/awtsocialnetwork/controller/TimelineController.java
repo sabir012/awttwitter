@@ -31,6 +31,7 @@ public class TimelineController {
         return filterService.getAllFilter();
     }
 
+    @GetMapping(path="/tweets")
     public @ResponseBody Iterable<TweetEntity> getAllTweets() {
         // This returns a JSON or XML with the users
         return tweetRepository.findAll();

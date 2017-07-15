@@ -9,8 +9,12 @@ import com.example.awtsocialnetwork.repository.TopicRepository;
 import com.example.awtsocialnetwork.repository.TweetRepository;
 import com.example.awtsocialnetwork.repository.TwitterUserRepository;
 import com.example.awtsocialnetwork.service.FilterService;
+import com.example.awtsocialnetwork.specification.TweetSpecification;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specifications;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 /**
  * Created by sabiralizada on 7/6/17.
@@ -31,39 +35,18 @@ public class TimelineController {
         return filterService.getAllFilter();
     }
 
-    @GetMapping(path="/tweets")
-    public @ResponseBody Iterable<TweetEntity> getAllTweets() {
-        // This returns a JSON or XML with the users
-        return tweetRepository.findAll();
-    }
-
-    @GetMapping(path="/topic")
-    public @ResponseBody Iterable<TweetEntity> getTopicFilter(@RequestParam("topicID") String id) {
-        // This returns a JSON or XML with the users
-        return tweetRepository.findByTopicId(Long.parseLong(id));
-    }
-
-    @GetMapping(path="/language")
-    public @ResponseBody Iterable<TweetEntity> getLanguageFilter(@RequestParam("languageID") String id) {
-        // This returns a JSON or XML with the users
-        return tweetRepository.findByLanguageId(Long.parseLong(id));
-    }
-
-    @GetMapping(path="/filterGender")
-    public @ResponseBody Iterable<TweetEntity> getGenderFilter(@RequestParam("genderID") String id) {
-        // This returns a JSON or XML with the users
-        return tweetRepository.findByGenderId(Long.parseLong(id));
-    }
-
-    @GetMapping(path="/filterSentiment")
-    public @ResponseBody Iterable<TweetEntity> getSentimentFilter(@RequestParam("sentimentID") String id) {
-        // This returns a JSON or XML with the users
-        return tweetRepository.findBySentimentId(Long.parseLong(id));
-    }
-
-    @GetMapping(path="/filterUser")
-    public @ResponseBody Iterable<TweetEntity> getUserFilter(@RequestParam("userID") String id) {
-        // This returns a JSON or XML with the users
-        return tweetRepository.findByTwitterUserId(Long.parseLong(id));
+    @GetMapping(path = "/filter")
+    public @ResponseBody Iterable<TweetEntity> getFilteredTweets(@RequestParam Map<String, String> requestParams) {
+        String genderId = requestParams.get("genderID");
+        String languageId = requestParams.get("languageID");
+        String sentimentId = requestParams.get("sentimentID");
+        String topicId = requestParams.get("topicID");
+        String userId = requestParams.get("userID");
+        return tweetRepository.findAll(Specifications
+                .where(TweetSpecification.withGender(genderId == null ? null : Long.parseLong(genderId)))
+                .and(TweetSpecification.withLanguage(languageId == null ? null : Long.parseLong(languageId)))
+                .and(TweetSpecification.withSentiment(sentimentId == null ? null : Long.parseLong(sentimentId)))
+                .and(TweetSpecification.withTopic(topicId == null ? null : Long.parseLong(topicId)))
+                .and(TweetSpecification.withUser(userId == null ? null : Long.parseLong(userId))));
     }
 }

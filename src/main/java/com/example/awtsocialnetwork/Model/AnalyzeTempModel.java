@@ -3,12 +3,12 @@ package com.example.awtsocialnetwork.Model;
 /**
  * Created by sabiralizada on 7/15/17.
  */
-public class SentimentModel {
+public class AnalyzeTempModel {
     private Long id;
     private String name;
     private Float percentage;
 
-    public SentimentModel(Long id, String name, Float percentage) {
+    public AnalyzeTempModel(Long id, String name, Float percentage) {
         this.id = id;
         this.name = name;
         this.percentage = percentage;
